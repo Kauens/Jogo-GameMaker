@@ -1,0 +1,16 @@
+speed = 4;
+score = 0;
+
+if (keyboard_check(vk_left))  x -= speed;
+if (keyboard_check(vk_right)) x += speed;
+if (keyboard_check(vk_up))    y -= speed;
+if (keyboard_check(vk_down))  y += speed;
+
+x = clamp(x, 0, room_width);
+y = clamp(y, 0, room_height);
+
+score += 1;
+instance_destroy(other);
+image_speed = 0.2;
+
+draw_text(10, 10, "Moedas: " + string(obj_player.score));
